@@ -1,6 +1,6 @@
 <?php
 // Kết nối database
-$conn = new mysqli("MYSQL_HOSTNAME", "MYSQL_USERNAME", "MYSQL_PASSWORD", "demo_shop");
+$conn = new mysqli("if0_40672458_foodfast", "if0_40672458", "V9jSIdsq5mq4BqR", "ptoducts");
 $conn->set_charset("utf8mb4");
 
 if ($conn->connect_error) {
