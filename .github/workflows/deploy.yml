@@ -10,14 +10,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ftpupload.net
           username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.IF0_40672458 }}
+          password: ${{ secrets.FTP_PASS }}
+          port: 21
+          protocol: ftp
           local-dir: ./
           server-dir: /htdocs/
