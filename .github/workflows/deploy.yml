@@ -1,5 +1,6 @@
 name: Deploy PHP to InfinityFree
 
+# Trigger khi push lên nhánh main
 on:
   push:
     branches:
@@ -10,14 +11,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout code từ GitHub
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # Deploy code lên InfinityFree via FTP
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4
         with:
-          server: ftpupload.net
-          username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASS }}
-          local-dir: ./
-          server-dir: /htdocs
+          server: ftpupload.net          # FTP host của InfinityFree
+          username: ${{ secrets.FTP_USER }}  # secret username
+          password: ${{ secrets.FTP_PASS }}  # secret password
+          local-dir: ./                  # thư mục chứa code trên repo
+          server-dir: /htdocs            # thư mục trên host
